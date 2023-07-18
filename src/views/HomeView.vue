@@ -21,7 +21,8 @@
           <v-col
             v-for="data in karte"
             :key="data.name"
-            cols="4"
+            cols="12"
+            md="3"
           >
             <v-card height="300">
               <h1>{{ data.name }}</h1>
@@ -67,3 +68,10 @@
 
     }
 </script>
+<style >
+
+
+
+
+
+</style>

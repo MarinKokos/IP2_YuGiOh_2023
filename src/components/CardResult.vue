@@ -6,9 +6,16 @@
       </a>
       <div>{{ card.name }}</div>
       <div>{{ card.type }}</div>
-      <div>{{ card.atk }}</div>
-      <div>{{ card.def }}</div>
-      <div>{{ card.level }}</div>
+      <div>ATK: {{ card.atk }}</div>
+      <div>DEF: {{ card.def }}</div>
+      <div>
+        <template v-if="card.type === 'XYZ Monster'">
+          Rank: {{ card.level }}
+        </template>
+        <template v-else>
+          Level: {{ card.level }}
+        </template>
+      </div>
       <div>{{ card.race }}</div>
       <div>{{ card.attribute }}</div>
     </div>
@@ -17,6 +24,7 @@
 
   <script>
   export default {
+    
     methods: {
       getCardLink(cardName) {
       const cardNameFormatted = cardName.replace(/\s/g, '_');

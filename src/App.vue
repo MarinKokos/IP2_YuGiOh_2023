@@ -1,5 +1,6 @@
 <template>
   <v-app>
+    
     <v-app-bar
       app
       color="primary"
@@ -13,7 +14,7 @@
           contain
           img src="/logo.png"
           transition="scale-transition"
-          width="60"
+          width="100"
         />
       </a>
 

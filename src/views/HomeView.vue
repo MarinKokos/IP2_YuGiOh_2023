@@ -19,11 +19,15 @@
       <v-container>
         <v-row>
           <v-col
-            v-for="n in 24"
-            :key="n"
+            v-for="data in karte"
+            :key="data.name"
             cols="4"
           >
-            <v-card height="200"></v-card>
+            <v-card height="300">
+              <h1>{{ data.name }}</h1>
+              <h5>{{data.desc}}</h5>
+
+            </v-card>
           </v-col>
         </v-row>
       </v-container>
@@ -34,6 +38,32 @@
 <script>
 
   export default {
+
+    data(){
+      return{
+        test: 'testna varijabla',
+        karte:[],
+        
+      }
+
+    },
+    created(){
+      console.log("created")
+      this.getData();
+
+    },
+
+    methods:{
+      getData(){
+        let api="https://db.ygoprodeck.com/api/v7/cardinfo.php?staple=yes"
+        this.axios.get(api).then((response) => {
+  console.log(response.data)
+  this.karte=response.data.data
+ 
+})
+
+      }
+    }
 
     }
 </script>
